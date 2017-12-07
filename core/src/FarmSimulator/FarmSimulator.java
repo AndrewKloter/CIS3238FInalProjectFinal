@@ -25,6 +25,7 @@ public class FarmSimulator extends ApplicationAdapter {
             res = Res.i();
             //res.loadTexture("tileset", "tileset.png");
             res.loadTexture("FarmTiles", "FarmTiles.png");
+            res.loadTexture("tileset", "tileset.png");
             
             
 	    sb = new SpriteBatch();

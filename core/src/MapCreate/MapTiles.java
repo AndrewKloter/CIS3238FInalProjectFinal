@@ -47,7 +47,10 @@ public class MapTiles {
         this.tileSize = tileSize;
         NumRowsToDraw = StartParams.HEIGHT/tileSize + 2;
         NumColsToDraw = StartParams.WIDTH/tileSize + 2;
-        //System.out.println("tileSize: " + tileSize);
+        
+        System.out.println("tileSize: " + tileSize);
+        System.out.println("NumRowsToDraw" + NumRowsToDraw);
+        System.out.println("NumColsToDraw" + NumColsToDraw);
     }
     public void loadTileset(TextureRegion[][] tileset) {
         this.tileset = tileset;
