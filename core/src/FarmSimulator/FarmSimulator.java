@@ -24,6 +24,8 @@ public class FarmSimulator extends ApplicationAdapter {
             
             res = Res.i();
             //res.loadTexture("tileset", "tileset.png");
+            res.loadTexture("FarmTiles", "FarmTiles.png");
+            
             
 	    sb = new SpriteBatch();
 	    gsm = new GSM();
@@ -37,11 +39,4 @@ public class FarmSimulator extends ApplicationAdapter {
                 gsm.render(sb);
 	}
 	
-        /*
-	@Override
-	public void dispose () {
-		batch.dispose();
-		img.dispose();
-	}
-        */
 }
