@@ -1,6 +1,5 @@
 package MapCreate;
 
-
 import java.awt.Rectangle;
 
 import com.badlogic.gdx.graphics.Color;

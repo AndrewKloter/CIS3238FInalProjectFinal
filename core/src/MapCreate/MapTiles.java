@@ -1,6 +1,5 @@
 package MapCreate;
 
-
 import java.io.BufferedReader;
 
 import com.badlogic.gdx.Gdx;
@@ -49,6 +48,10 @@ public class MapTiles {
         NumRowsToDraw = StartParams.HEIGHT/tileSize + 2;
         NumColsToDraw = StartParams.WIDTH/tileSize + 2;
         //System.out.println("tileSize: " + tileSize);
+    }
+    public void loadTileset(TextureRegion[][] tileset) {
+        this.tileset = tileset;
+        numTilesAcross = tileset[0].length;
     }
     
     public void loadMap(String s) {
