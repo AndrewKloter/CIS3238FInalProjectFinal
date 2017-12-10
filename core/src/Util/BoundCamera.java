@@ -4,7 +4,11 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 
 public class BoundCamera extends OrthographicCamera {
     
-    private float xmin, xmax, ymin, ymax;
+    //private float xmin, xmax, ymin, ymax;
+    private float xmin;
+    private float ymin;
+    private float xmax;
+    private float ymax;
     
     public void setBounds(float xmin, float ymin, float xmax, float ymax) {
         this.xmin = xmin;
@@ -26,15 +30,15 @@ public class BoundCamera extends OrthographicCamera {
         }
         
          if (position.x > xmax - viewportWidth / 2) {
-            position.x = xmax - viewportWidth / 2;
+             position.x = xmax - viewportWidth / 2;
         }
          
          if (position.y < ymin + viewportWidth / 2) {
-            position.y = ymin + viewportWidth / 2;
+             position.y = ymin + viewportWidth / 2;
         }
          
          if (position.y > ymax + viewportWidth / 2) {
-            position.y = ymax + viewportWidth / 2;
+             position.y = ymax + viewportWidth / 2;
         }
         
     }

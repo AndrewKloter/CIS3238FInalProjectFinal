@@ -15,12 +15,12 @@ public class Crop {
     private float h;
     
     public Crop(Seed seed) {
-        //sprite = seed.getType().cropSprite;
-        //value = seed.getType().value;
-        //x = seed.getx();
-        //y = seed.gety();
-        //w = seed.getw();
-        //h = seed.geth();
+        sprite = seed.getType().cropImage;
+        value = seed.getType().value;
+        x = seed.getx();
+        y = seed.gety();
+        w = seed.getw();
+        h = seed.geth();
     }
     
     public int getValue() {

@@ -70,10 +70,8 @@ public abstract class MapObjects {
         mapTiles = mt;
         tileSize = mt.getTileSize();
         //animation = new Animation();
-        
     }
-    
-    
+       
       public Rectangle getRectangle() {
         return new Rectangle( (int)(x - collisionWidth / 2),
                               (int)(y - collisionHeight / 2),
@@ -148,9 +146,10 @@ public abstract class MapObjects {
   public int getRow() {return (int) (y / mapTiles.getTileSize());}
   public int getCol() {return (int) (x / mapTiles.getTileSize());}
   
-  public void setPosistion(float x, float y) {
+  public void setPosition(float x, float y) {
       this.x = x;
       this.y = y;
+      System.out.println("setPos in mapObjetcs, x and y: " + x + " " + y);
   }
   
   public void setVector(float dx, float dy) {

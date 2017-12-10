@@ -8,14 +8,14 @@ import Util.Res;
 
 public class Seed {
 
-    /*
+    
     public static Type[] types = Type.values();
-    */
+    
     
     public enum Type {
         
-        POTATO(new TextureRegion(Res.i().getTexture("FarmTiles"), 64, 0, 32, 32),
-            new TextureRegion(Res.i().getTexture("FarmTiles"), 0, 32, 32, 32),
+        POTATO(new TextureRegion(Res.i().getTexture("farmtiles1"), 0, 0, 32, 32),
+            new TextureRegion(Res.i().getTexture("farmtiles1"), 0, 32, 32, 32),
             20,
             14,
             10);
