@@ -14,7 +14,7 @@ public class Seed {
     
     public enum Type {
         
-        POTATO(new TextureRegion(Res.i().getTexture("farmtiles1"), 0, 0, 32, 32),
+        POTATO(new TextureRegion(Res.i().getTexture("farmtiles1"), 96, 0, 32, 32),
             new TextureRegion(Res.i().getTexture("farmtiles1"), 0, 32, 32, 32),
             20,
             14,
@@ -50,7 +50,7 @@ public class Seed {
     private boolean grown;
     
     private TextureRegion sprite;
-    //private TextureRegion pixel;
+    private TextureRegion pixel;
     
     public Seed(Type type, float x, float y, float w, float h) {
         this.type = type;
@@ -61,8 +61,7 @@ public class Seed {
         sprite = type.sprite;
         requiredTime = type.requiredTime;
         crop = new Crop(this);
-        //PIxel can be used for if I do a time bar above actions.
-        //pixel = new TextureRegion(Res.i().getTexture("pixel"));
+        pixel = new TextureRegion(Res.i().getTexture("pixel"));
     }
 
 
@@ -115,13 +114,18 @@ public class Seed {
     
     public void render(SpriteBatch sb) {
         sb.draw(sprite, x - w / 2, y - h / 2);
-        /*
+        
         if (watered) {
             Color c = sb.getColor();
             sb.draw(pixel, x - w / 2, y + h / 2, w * time / requiredTime, 3);
-            //sb.setColor(Color.BLACK);
+            sb.setColor(Color.BLACK);
+            sb.draw(pixel, x - w / 2, y + h / 2, w, 1);
+            sb.draw(pixel, x - w / 2, y + h / 2 + 3, w, 1);
+            sb.draw(pixel, x - w / 2, y + h / 2, 1, 4);
+            sb.draw(pixel, x - w / 2, y + h / 2, 1, 4);
+            sb.setColor(c);
         }
-    */
+    
     }
     
     

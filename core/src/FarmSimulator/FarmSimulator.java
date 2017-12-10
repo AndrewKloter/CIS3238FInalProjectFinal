@@ -16,19 +16,17 @@ public class FarmSimulator extends ApplicationAdapter {
     private GSM gsm;
     private Res res;
     
-    //Texture img;
-	
 	@Override
 	public void create () {
             Gdx.gl.glClearColor(0, 0, 0, 1);
             
-           // img = new Texture("player.png");
          
             
                 res = Res.i();
 		res.loadTexture("tileset", "tileset_1.png");
 		res.loadTexture("player", "player_1.png");
                 res.loadTexture("farmtiles1", "farmtiles_1.png");
+                res.loadTexture("FarmTiles", "FarmTiles.png");
 		res.loadTexture("pixel", "pixel2.png");
                 
                 
@@ -36,26 +34,7 @@ public class FarmSimulator extends ApplicationAdapter {
 		gsm = new GSM();
 		gsm.push(new PlayState(gsm));
         }
-        
-/*
-	@Override
-	public void render () {
-            
-            
-                Gdx.gl.glClearColor(1, 0, 0, 1);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		sb.begin();
-		sb.draw(img, 0, 0);
-		sb.end();
-            
-            
-                //Gdx.gl.glClearColor(1,1,0,1);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		gsm.update(Gdx.graphics.getDeltaTime());
-                gsm.render(sb);
-                    
-	}
-                    */
+
             @Override
             public void render() {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);

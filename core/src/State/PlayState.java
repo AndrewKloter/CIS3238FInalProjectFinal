@@ -140,23 +140,4 @@ public class PlayState extends State {
 		sb.end();
 	}
     
-    /*
-    @Override
-    public void render(SpriteBatch sb) {
-       sb.setProjectionMatrix(cam.combined);
-       sb.begin();
-        //System.out.println("farm.length" + farm.length);
-       mapTiles.render(sb, cam);       
-         for (int row = 0; row < farm.length; row++) {
-            for (int col = 0; col < farm[0].length; col++) {
-                farm[row][col].render(sb);
-            }
-        }
-               
-         player.render(sb);
-         //sb.setProjectionMatrix(super.cam.combined);
-         sb.end();
-    }
-    */
-    
 }

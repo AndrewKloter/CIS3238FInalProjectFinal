@@ -10,17 +10,18 @@ import MapCreate.MapTiles;
 public class Plot {
     
     public enum State {
-        /*
-         NORMAL(new TextureRegion(Res.i().getTexture("FarmTiles"))),
-        SEEDED(new TextureRegion(Res.i().getTexture("FarmTiles"))),
-        FERTILIZED(new TextureRegion(Res.i().getTexture("FarmTiles"))),
-        WATERED(new TextureRegion(Res.i().getTexture("FarmTiles")));
-        */
-       
+        
+        NORMAL(new TextureRegion(Res.i().getTexture("FarmTiles"), 0, 0, 32, 32)),
+        SEEDED(new TextureRegion(Res.i().getTexture("FarmTiles"), 32, 0, 32, 32)),
+        FERTILIZED(new TextureRegion(Res.i().getTexture("FarmTiles"), 64, 0, 32, 32)),
+        WATERED(new TextureRegion(Res.i().getTexture("FarmTiles"), 96, 0, 32, 32));
+        
+       /*
         NORMAL(new TextureRegion(Res.i().getTexture("farmtiles1"), 0, 0, 32, 32)),
         SEEDED(new TextureRegion(Res.i().getTexture("farmtiles1"), 32, 0, 32, 32)),
         FERTILIZED(new TextureRegion(Res.i().getTexture("farmtiles1"), 64, 0, 32, 32)),
         WATERED(new TextureRegion(Res.i().getTexture("farmtiles1"), 96, 0, 32, 32));
+        */
         
         public TextureRegion sprite;
         private State(TextureRegion sprite) {
