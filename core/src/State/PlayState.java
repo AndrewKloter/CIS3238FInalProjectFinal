@@ -59,7 +59,7 @@ public class PlayState extends State {
         HUD = new HUD(player);
         
         stall = new Stall(mapTiles);
-        stall.setPosition(425, 100);
+        stall.setPosition(425, 150);
     }
     
     

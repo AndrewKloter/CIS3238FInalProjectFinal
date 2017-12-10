@@ -37,7 +37,7 @@ public class HUD {
     }
 
     public void render(SpriteBatch sb) {
-        System.out.println("IN RENDER OF HUD");
+        //System.out.println("IN RENDER OF HUD");
         sb.setColor(bgColor);
         sb.draw(pixel, 0, 0, StartParams.WIDTH, height);
         sb.setColor(borderColor);
@@ -67,11 +67,11 @@ public class HUD {
         }
         builder.append(second);
         font.draw(sb, builder.toString(), 10, StartParams.HEIGHT - 10);
-        font.draw(sb, "Money: $" + player.getMoney(), 200, 65);
-        font.draw(sb, "# of Seeds: " + player.getNumSeeds(), 200, 50);
-        font.draw(sb, "# of Crops: " + player.getNumCrops(), 200, 35);
-        font.draw(sb, "Total profit: $" + player.getTotalMoney(), 200, 20);
-        font.draw(sb, StartParams.DayLimit + " day goal: $" + StartParams.MoneyToReach + " total profit", 10, 85);
+        font.draw(sb, "Money: $" + player.getMoney(), 10, 60);
+        font.draw(sb, "# of Seeds: " + player.getNumSeeds(), 10, 45);
+        font.draw(sb, "# of Veggies: " + player.getNumCrops(), 10, 30);
+        font.draw(sb, "Total profit: $" + player.getTotalMoney(), 10, 15);
+        font.draw(sb, StartParams.DayLimit + " day goal: $" + StartParams.MoneyToReach + " total profit", 10, 80);
         font.draw(sb, "H for help", StartParams.WIDTH - 100, StartParams.HEIGHT - 10);
         font.draw(sb, "S for shop", StartParams.WIDTH - 100, StartParams.HEIGHT - 25);
     }
