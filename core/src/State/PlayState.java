@@ -40,6 +40,7 @@ public class PlayState extends State {
         player = new Player(mapTiles);
         //player.setPosition(100, 100);
 	player.setPosition(mapTiles.getWidth() / 2, mapTiles.getHeight() / 2 - 64);
+        System.out.println("maptiles getwidht and getheight: " + (mapTiles.getWidth() / 2) + " " + (mapTiles.getHeight() / 2 - 64));
         
         
         farm = new Plot[4][10];
@@ -57,9 +58,20 @@ public class PlayState extends State {
     @Override
     public void update(float dt) {
         
-        //globalTime += 2880 * dt;
+        globalTime += 2880 * dt;
+        
+        if (player.getTotalMoney() >= StartParams.MoneyToReach) {
+            gsm.set(new WinState(gsm));
+        }
+        
+        if (globalTime >= StartParams.Seconds) {
+            gsm.set(new GameOverState(gsm));
+        }
+        
+        System.out.println("in update for PlayState");
+        
       
-       player.setLeft(Gdx.input.isKeyPressed(Keys.LEFT));
+                player.setLeft(Gdx.input.isKeyPressed(Keys.LEFT));
 		player.setRight(Gdx.input.isKeyPressed(Keys.RIGHT));
 		player.setUp(Gdx.input.isKeyPressed(Keys.UP));
 		player.setDown(Gdx.input.isKeyPressed(Keys.DOWN));
@@ -98,6 +110,7 @@ public class PlayState extends State {
         
                 cam.position.set(player.getx(), player.gety(), 0);
 		cam.update();
+                System.out.println("player getx and player gety: " + player.getx() + " " + player.gety());
 		
 		for(int row = 0; row < farm.length; row++) {
 			for(int col = 0; col < farm[0].length; col++) {

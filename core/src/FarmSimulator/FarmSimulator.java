@@ -23,32 +23,19 @@ public class FarmSimulator extends ApplicationAdapter {
             Gdx.gl.glClearColor(0, 0, 0, 1);
             
            // img = new Texture("player.png");
-            /*
-            res = Res.i();
-            res.loadTexture("tileset", "tileset.png");
-            res.loadTexture("player", "player.png");
-            res.loadTexture("FarmTiles", "FarmTiles.png");
-            //res.loadTexture("tileset", "tileset.png");
-            */
+         
             
                 res = Res.i();
 		res.loadTexture("tileset", "tileset_1.png");
 		res.loadTexture("player", "player_1.png");
-		//res.loadTexture("farmtiles", "FarmTiles.png");
+                res.loadTexture("farmtiles1", "farmtiles_1.png");
 		res.loadTexture("pixel", "pixel2.png");
-                res.loadTexture("farmtiles1", "farmtiles1.png");
+                
                 
                 sb = new SpriteBatch();
 		gsm = new GSM();
 		gsm.push(new PlayState(gsm));
-            
-            
-            /*
-	    sb = new SpriteBatch();
-	    gsm = new GSM();
-            gsm.push(new PlayState(gsm));
-                */
-	}
+        }
         
 /*
 	@Override

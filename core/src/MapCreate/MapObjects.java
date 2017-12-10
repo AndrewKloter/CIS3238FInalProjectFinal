@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
+import Util.Animation;
 /**
  *
  * @author Andrew
@@ -46,12 +47,12 @@ public abstract class MapObjects {
     protected boolean leftColl;
     protected boolean rightColl;
     
-    /*
+    
     //animation
     protected Animation animation;
     protected int currAction;
     protected int prevAction;
-    */
+    
     
     //movement
     protected boolean left;
@@ -69,7 +70,15 @@ public abstract class MapObjects {
     public MapObjects(MapTiles mt) {
         mapTiles = mt;
         tileSize = mt.getTileSize();
-        //animation = new Animation();
+        animation = new Animation();
+    }
+    
+    protected void setAnimation(TextureRegion[] images, float interval, int numFrames) {
+        animation.setImages(images);
+        animation.setInterval(interval);
+        animation.setNumFrames(numFrames);
+        width = images[0].getRegionWidth();
+        height = images[0].getRegionHeight();
     }
        
       public Rectangle getRectangle() {
@@ -131,8 +140,65 @@ public abstract class MapObjects {
   }
   
   
-  //protected boolean checkTileMapCollision() {
-  // }
+  protected boolean checkTileMapCollision() {
+                currCol = (int)x / tileSize;
+		currRow = (int)y / tileSize;
+		
+		xdest = x + dx;
+		ydest = y + dy;
+		
+		xtemp = x;
+		ytemp = y;
+		
+		boolean collision = false;
+		
+		CalcCollision(x, ydest);
+		if(dy > 0) {
+			if(topColl) {
+				dy = 0;
+				ytemp = (topTile) * tileSize - collisionHeight / 2;
+				collision = true;
+			}
+			else {
+				ytemp += dy;
+			}
+		}
+		if(dy < 0) {
+			if(bottomColl) {
+				dy = 0;
+				ytemp = (bottomTile + 1) * tileSize + collisionHeight / 2;
+				collision = true;
+			}
+			else {
+				ytemp += dy;
+			}
+		}
+		
+		CalcCollision(xdest, y);
+		if(dx < 0) {
+			if(leftColl) {
+				dx = 0;
+				xtemp = (leftTile + 1) * tileSize + collisionWidth / 2;
+				collision = true;
+			}
+			else {
+				xtemp += dx;
+			}
+		}
+		if(dx > 0) {
+			if(rightColl) {
+				dx = 0;
+				xtemp = rightTile * tileSize - collisionWidth / 2;
+				collision = true;
+			}
+			else {
+				xtemp += dx;
+			}
+		}
+		
+		return collision;
+		
+	}
   
   
   public int getx() {return (int)x;}
@@ -171,7 +237,7 @@ public abstract class MapObjects {
   
   public void render(SpriteBatch sb) {
       sb.setColor(Color.WHITE);
-      //sb.draw(animation.getImage(), (int) (x - width / 2), (int) (y - height / 2), width, height);
+      sb.draw(animation.getImage(), (int) (x - width / 2), (int) (y - height / 2), width, height); 
   }
     
     

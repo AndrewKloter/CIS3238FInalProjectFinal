@@ -30,10 +30,11 @@ public class Player extends MapObjects {
     private int actionCol;
     private float actionTime;
     private float actionTimeRequired;
+    private float[] actionSpeedMultipliers = {1, 1, 1, 1};
     
     private Seed.Type nextSeedType;
-    private Plot selectedPlot;
     private TextureRegion pixel;
+    private Plot selectedPlot;
     private int row;
     private int col;
     
@@ -65,11 +66,11 @@ public class Player extends MapObjects {
         System.out.println("texture tex: " + tex);
         TextureRegion[][] split = TextureRegion.split(tex, 32, 32);
         idle = split[0];
-        moving = split[1];
-        seeding = split[2];
-        fertilizing = split[3];
-        watering = split[4];
-        //setAnimation(reg, 0);
+        moving = split[0];
+        seeding = split[0];
+        fertilizing = split[0];
+        watering = split[0];
+        setAnimation(idle, 0, 1);
         collisionWidth = 20;
         collisionHeight = 20;
                 
@@ -241,6 +242,10 @@ public class Player extends MapObjects {
             } else {
                 dy = 0;
             }
+            
+            checkTileMapCollision();
+            x = xtemp;
+            y = ytemp;
 
         }
     }

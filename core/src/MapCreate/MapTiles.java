@@ -138,7 +138,7 @@ public class MapTiles {
             if (row >= numRows) break;
             for (int col = colOffset; col < colOffset + NumColsToDraw; col++) {
                 if (col >= numCols) break;
-                System.out.println("row and col: " + row + " " + col);
+                //System.out.println("row and col: " + row + " " + col);
                 
                 if (map[row][col] == 0) continue;
                 
