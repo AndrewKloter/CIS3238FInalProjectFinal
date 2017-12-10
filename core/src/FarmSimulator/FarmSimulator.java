@@ -28,7 +28,11 @@ public class FarmSimulator extends ApplicationAdapter {
                 res.loadTexture("farmtiles1", "farmtiles_1.png");
                 res.loadTexture("FarmTiles", "FarmTiles.png");
 		res.loadTexture("pixel", "pixel2.png");
+                res.loadTexture("stall", "Stall.png");
                 
+                res.loadFont("font", 8);
+                res.loadFont("fontsmall", 6);
+                res.loadFont("fontlarge", 16);
                 
                 sb = new SpriteBatch();
 		gsm = new GSM();

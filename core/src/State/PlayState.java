@@ -8,7 +8,9 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 import FarmSimulator.StartParams;
 import Entity.Player;
+import Entity.Stall;
 import Farm.Plot;
+import HUD.HUD;
 import MapCreate.MapTiles;
 import Util.Res;
 import Util.BoundCamera;
@@ -18,8 +20,10 @@ public class PlayState extends State {
     private MapTiles mapTiles;
     private BoundCamera cam;
     private Player player;
+    private Stall stall;
     private Plot[][] farm;
     private float globalTime;
+    private HUD HUD;
     
     
     public PlayState(GSM gsm) {
@@ -51,6 +55,11 @@ public class PlayState extends State {
 		}
         
         player.setFarm(farm);
+        
+        HUD = new HUD(player);
+        
+        stall = new Stall(mapTiles);
+        stall.setPosition(425, 100);
     }
     
     
@@ -59,6 +68,7 @@ public class PlayState extends State {
     public void update(float dt) {
         
         globalTime += 2880 * dt;
+        HUD.setGlobalTime(globalTime);
         
         if (player.getTotalMoney() >= StartParams.MoneyToReach) {
             gsm.set(new WinState(gsm));
@@ -90,6 +100,12 @@ public class PlayState extends State {
 			player.harvest();
 		}
                 
+                if(player.intersects(stall)) {
+                    if (player.sell()) {
+                        stall.setShowing();
+                    }
+                }
+                
                 if(Gdx.input.isKeyJustPressed(Keys.H)) {
 			gsm.push(new HelpState(gsm));
 			return;
@@ -99,6 +115,8 @@ public class PlayState extends State {
 			gsm.push(new StoreState(gsm, player));
 			return;
 		}
+                
+
                 
         
         
@@ -117,7 +135,7 @@ public class PlayState extends State {
 				farm[row][col].update(dt);
 			}
 		}
-        
+        stall.update(dt);
         
     }
     
@@ -134,9 +152,9 @@ public class PlayState extends State {
 			}
 		}
 		player.render(sb);
-		//truck.render(sb);
+		stall.render(sb);
 		sb.setProjectionMatrix(super.cam.combined);
-		//hud.render(sb);
+		HUD.render(sb);
 		sb.end();
 	}
     
