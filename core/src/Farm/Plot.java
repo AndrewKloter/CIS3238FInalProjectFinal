@@ -16,13 +16,6 @@ public class Plot {
         FERTILIZED(new TextureRegion(Res.i().getTexture("FarmTiles"), 64, 0, 32, 32)),
         WATERED(new TextureRegion(Res.i().getTexture("FarmTiles"), 96, 0, 32, 32));
         
-       /*
-        NORMAL(new TextureRegion(Res.i().getTexture("farmtiles1"), 0, 0, 32, 32)),
-        SEEDED(new TextureRegion(Res.i().getTexture("farmtiles1"), 32, 0, 32, 32)),
-        FERTILIZED(new TextureRegion(Res.i().getTexture("farmtiles1"), 64, 0, 32, 32)),
-        WATERED(new TextureRegion(Res.i().getTexture("farmtiles1"), 96, 0, 32, 32));
-        */
-        
         public TextureRegion sprite;
         private State(TextureRegion sprite) {
             this.sprite = sprite;
@@ -73,9 +66,6 @@ public class Plot {
         if (canFertilize()) {
             state = State.FERTILIZED;
             sprite = state.sprite;
-            //if (seed != null) {
-            //    seed.setFertilized();
-            //}
         }
     }
     

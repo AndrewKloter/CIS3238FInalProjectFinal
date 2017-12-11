@@ -20,7 +20,7 @@ public class Player extends MapObjects {
     
     private Plot[][] farm;
     
-    private List<Crop> crops;
+    private List<Crop> basket;
     private List<Seed.Type> seeds;
     private int money = 0;
     private int totalMoney;
@@ -76,7 +76,7 @@ public class Player extends MapObjects {
                 
         
         moveSpeed = 100;
-        crops = new ArrayList<Crop>();
+        basket = new ArrayList<Crop>();
         seeds = new ArrayList<Seed.Type>();
         
         pixel = new TextureRegion(Res.i().getTexture("pixel"));
@@ -141,7 +141,7 @@ public class Player extends MapObjects {
             case HARVESTING:
                 Crop crop = farm[actionRow][actionCol].harvest();
                 if (crop != null) {
-                    crops.add(crop);
+                    basket.add(crop);
                 }
                 break;
         }
@@ -199,18 +199,18 @@ public class Player extends MapObjects {
     
     
     public boolean sell() {
-        if (crops.isEmpty()) {
+        if (basket.isEmpty()) {
             return false;
         }
-        for (Crop crop : crops) {
+        for (Crop crop : basket) {
             addMoney(crop.getValue());
         }
-        crops.clear();
+        basket.clear();
         return true;
     }
     
     public int getNumCrops() {
-        return crops.size();
+        return basket.size();
     }
     
     public Action getAction() {
@@ -271,6 +271,17 @@ public class Player extends MapObjects {
         if (selectedPlot != null) {
             selectedPlot.renderHighlight(sb);
         }
+        if(action != null) {
+			Color c = sb.getColor();
+			sb.setColor(Color.GREEN);
+			sb.draw(pixel, x - width / 2, y + height / 2, width * actionTime / actionTimeRequired, 3);
+			sb.setColor(Color.BLACK);
+			sb.draw(pixel, x - width / 2, y + height / 2, width, 1);
+			sb.draw(pixel, x - width / 2, y + height / 2 + 3, width, 1);
+			sb.draw(pixel, x - width / 2, y + height / 2, 1, 4);
+			sb.draw(pixel, x + width / 2, y + height / 2, 1, 4);
+			sb.setColor(c);
+		}
     }
     
 }

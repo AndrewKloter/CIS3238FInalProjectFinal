@@ -54,7 +54,7 @@ public class Seed {
     
     private Type type;
     private Crop crop;
-    private float x;//, y, w, h;
+    private float x;
     private float y;
     private float w;
     private float h;

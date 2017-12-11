@@ -7,10 +7,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 import Util.Animation;
-/**
- *
- * @author Andrew
- */
+
 public abstract class MapObjects {
     
     //tile map

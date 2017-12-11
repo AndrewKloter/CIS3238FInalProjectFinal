@@ -42,7 +42,6 @@ public class PlayState extends State {
         System.out.println("width and height: " + mapTiles.getWidth() + " " + mapTiles.getHeight());
         
         player = new Player(mapTiles);
-        //player.setPosition(100, 100);
 	player.setPosition(mapTiles.getWidth() / 2, mapTiles.getHeight() / 2 - 64);
         System.out.println("maptiles getwidht and getheight: " + (mapTiles.getWidth() / 2) + " " + (mapTiles.getHeight() / 2 - 64));
         
@@ -115,16 +114,6 @@ public class PlayState extends State {
 			gsm.push(new StoreState(gsm, player));
 			return;
 		}
-                
-
-                
-        
-        
-        /*
-        if (player.getTotalMoney() > = StartParams.MoneyToReach) {
-            gsm.set(new WinState(gsm));
-        }
-        */
         
                 cam.position.set(player.getx(), player.gety(), 0);
 		cam.update();
@@ -138,8 +127,6 @@ public class PlayState extends State {
         stall.update(dt);
         
     }
-    
-    
     
     @Override
 	public void render(SpriteBatch sb) {

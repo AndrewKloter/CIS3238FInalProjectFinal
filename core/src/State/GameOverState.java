@@ -11,7 +11,7 @@ public class GameOverState extends State {
     
     public GameOverState(GSM gsm) {
         super(gsm);
-        //font = Res.i().getFont("font");
+        font = Res.i().getFont("font");
     }
     
     @Override
@@ -23,8 +23,9 @@ public class GameOverState extends State {
     public void render(SpriteBatch sb) {
         sb.setProjectionMatrix(cam.combined);
         sb.begin();
-        font.draw(sb, "Game Over!", 154, 180);
-        font.draw(sb, "You Lose!", 154, 180);
+        font.draw(sb, "Game Over!", 170, 200);
+        font.draw(sb, "You Lose!", 170, 180);
+        font.draw(sb, "Better luck next time!", 120, 160);
         sb.end();
     }
     
