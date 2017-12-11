@@ -3,8 +3,8 @@ package FarmSimulator;
 public class StartParams {
     
  public static final String TITLE = "FARMSIM 2017";
- public static final int WIDTH = 400;
- public static final int HEIGHT = 300;
+ public static final int WIDTH = 420;
+ public static final int HEIGHT = 330;
  public static final int SCALE = 2;
    
  public static final int SeedsStartWith = 5;

@@ -217,6 +217,18 @@ public class Player extends MapObjects {
         return action;
     }
     
+    private void highlightPlot() {
+        int row = (int) (mapTiles.getNumRows() - (y / tileSize));
+        int col = (int) (x / tileSize);
+        row -= 3;
+        col -= 5;
+        if (row < 0 || row >= farm.length || col < 0 || col >= farm[0].length) {
+            selectedPlot = null;
+            return;
+        }
+            selectedPlot = farm[row][col];
+    }
+    
     
     
     @Override
@@ -246,6 +258,8 @@ public class Player extends MapObjects {
             checkTileMapCollision();
             x = xtemp;
             y = ytemp;
+            
+            highlightPlot();
 
         }
     }
@@ -254,6 +268,9 @@ public class Player extends MapObjects {
     @Override
     public void render(SpriteBatch sb) {
         super.render(sb);
+        if (selectedPlot != null) {
+            selectedPlot.renderHighlight(sb);
+        }
     }
     
 }

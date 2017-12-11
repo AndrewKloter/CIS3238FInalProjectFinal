@@ -13,12 +13,28 @@ public class Seed {
     
     
     public enum Type {
-        
+
         POTATO(new TextureRegion(Res.i().getTexture("farmtiles1"), 96, 0, 32, 32),
-            new TextureRegion(Res.i().getTexture("farmtiles1"), 0, 32, 32, 32),
-            20,
-            14,
-            10);
+                new TextureRegion(Res.i().getTexture("farmtiles1"), 0, 32, 32, 32),
+                10,
+                14,
+                10),
+        CORN(new TextureRegion(Res.i().getTexture("farmtiles1"), 96, 0, 32, 32),
+                new TextureRegion(Res.i().getTexture("farmtiles1"), 32, 32, 32, 32),
+                25,
+                18,
+                12),
+        TOMATO(new TextureRegion(Res.i().getTexture("farmtiles1"), 96, 0, 32, 32),
+                new TextureRegion(Res.i().getTexture("farmtiles1"), 64, 32, 32, 32),
+                20,
+                24,
+                15),
+        WHEAT(new TextureRegion(Res.i().getTexture("farmtiles1"), 96, 0, 32, 32),
+                new TextureRegion(Res.i().getTexture("farmtiles1"), 96, 32, 32, 32),
+                22,
+                35,
+                20),;
+        
         
         public TextureRegion sprite;
         public TextureRegion cropImage;

@@ -156,4 +156,12 @@ public class Plot {
                 
     }
     
+    public void renderHighlight(SpriteBatch sb) {
+		sb.setColor(Color.BLACK);
+		sb.draw(pixel, x - w / 2, y - h / 2, w, 1);
+		sb.draw(pixel, x - w / 2, y - h / 2, 1, h);
+		sb.draw(pixel, x - w / 2, y + h / 2, w, 1);
+		sb.draw(pixel, x + w / 2, y - h / 2, 1, h);
+	}
+    
 }
